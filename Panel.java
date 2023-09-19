@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -29,7 +30,9 @@ public class Panel extends JPanel{
     Panel(){
         this.setSize(panelWithd, panelHeight);
         this.setBackground(Color.BLACK);
-
+        this.setFocusable(true);//permet de prendre le focus sur la fenetre
+        imageVaisseau = new ImageIcon("ship.png");
+        
     
 
 
@@ -45,7 +48,9 @@ public class Panel extends JPanel{
     }
 
     public void draw(Graphics g){
-         Graphics2D graphics2D=((Graphics2D)g);
+         Graphics2D g2D=((Graphics2D)g);
+       g2D.drawRect(posXVaisseau, 400, WIDTH, HEIGHT);
+
 
     }
 
@@ -54,6 +59,6 @@ public class Panel extends JPanel{
 
     }
 
-    
+
     
 }
