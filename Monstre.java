@@ -29,6 +29,7 @@ public class Monstre {
 
     public void mvnt_bas(){
 
+
     }
 
 
