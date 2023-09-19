@@ -14,10 +14,10 @@ public class Panel extends JPanel{
 
     private final int panelHeight = 420;
     private final int panelWithd = 420;
-    private Timer timer;
+    private Timer timer ;
     private boolean isRunning = false;
     private int score;
-    private int posXVaisseau = 210;
+    private int posXVaisseau = 200;
     private int posYMonster;
     private int vitesseXVaisseau;
     private int vitesseYMonster;
@@ -28,7 +28,7 @@ public class Panel extends JPanel{
     
     
     private Vaisseau player = new Vaisseau(40, 40, 4);
-    private Monstre alien1 = new Monstre(10, 5, 1);
+    private Monstre alien1 = new Monstre(20, 20, 1);
     
     
     
@@ -36,7 +36,8 @@ public class Panel extends JPanel{
         
         this.setSize(new Dimension(panelWithd, panelHeight));
         this.setBackground(Color.BLACK);
-        
+        timer = new Timer(1000, null);
+        Start();
         
         
 
@@ -47,7 +48,19 @@ public class Panel extends JPanel{
    
 
     public void Start(){
-        timer.start();
+        try {
+            
+            for(int i =0;i<10;i++){
+                Thread.sleep(1000);
+                System.out.println(""+i);
+            }
+             
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+       
+       
         
     }
 
@@ -64,6 +77,8 @@ public class Panel extends JPanel{
     }
 
     public void gameOver(){
+
+
        
     }
 
@@ -77,6 +92,12 @@ protected void paintComponent(Graphics g) {
          g2D.setColor(Color.CYAN);
         
         g2D.fillRect(posXVaisseau, 300, player.getWidth(), player.getHeight());
+
+          g2D.setColor(Color.red);
+        
+        g2D.fillRect(100, posYMonster+20, alien1.getWidth(), alien1.getHeight());
+        g2D.fillRect(200, posYMonster+20, alien1.getWidth(), alien1.getHeight());
+        g2D.fillRect(300, posYMonster+20, alien1.getWidth(), alien1.getHeight());
 
 }
 
