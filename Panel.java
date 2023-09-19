@@ -44,41 +44,22 @@ public class Panel extends JPanel{
 
     }
 
-    public int getPosXVaisseau() {
-        return posXVaisseau;
-    }
-
-    public int getPosYMonster() {
-        return posYMonster;
-    }
-    public int getVitesseXVaisseau() {
-        return vitesseXVaisseau;
-    }
-    public int getVitesseYMonster() {
-        return vitesseYMonster;
-    }
-    public int getVitesseYtir() {
-        return vitesseYtir;
-    }
-
-    public void setPosXVaisseau(int posXVaisseau) {
-        this.posXVaisseau = posXVaisseau;
-    }
-    public void setPosYMonster(int posYMonster) {
-        this.posYMonster = posYMonster;
-    }
-    public void setVitesseXVaisseau(int vitesseXVaisseau) {
-        this.vitesseXVaisseau = vitesseXVaisseau;
-    }
-    public void setVitesseYMonster(int vitesseYMonster) {
-        this.vitesseYMonster = vitesseYMonster;
-    }
-    public void setVitesseYtir(int vitesseYtir) {
-        this.vitesseYtir = vitesseYtir;
-    }
+   
 
     public void Start(){
         timer.start();
+        
+    }
+
+    public void kill(){
+
+    }
+
+
+
+    public void score(){
+
+
         
     }
 
@@ -110,6 +91,39 @@ protected void paintComponent(Graphics g) {
     public void attack(){
 
 
+    }
+
+     public int getPosXVaisseau() {
+        return posXVaisseau;
+    }
+
+    public int getPosYMonster() {
+        return posYMonster;
+    }
+    public int getVitesseXVaisseau() {
+        return vitesseXVaisseau;
+    }
+    public int getVitesseYMonster() {
+        return vitesseYMonster;
+    }
+    public int getVitesseYtir() {
+        return vitesseYtir;
+    }
+
+    public void setPosXVaisseau(int posXVaisseau) {
+        this.posXVaisseau = posXVaisseau;
+    }
+    public void setPosYMonster(int posYMonster) {
+        this.posYMonster = posYMonster;
+    }
+    public void setVitesseXVaisseau(int vitesseXVaisseau) {
+        this.vitesseXVaisseau = vitesseXVaisseau;
+    }
+    public void setVitesseYMonster(int vitesseYMonster) {
+        this.vitesseYMonster = vitesseYMonster;
+    }
+    public void setVitesseYtir(int vitesseYtir) {
+        this.vitesseYtir = vitesseYtir;
     }
 
 
