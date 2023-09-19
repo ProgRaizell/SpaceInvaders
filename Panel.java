@@ -23,19 +23,50 @@ public class Panel extends JPanel{
     private int widthTir;
     private ImageIcon imageVaisseau;
     
-
+    private Vaisseau player = new Vaisseau(15, 7, 4);
+    private Monstre alien1 = new Monstre(10, 5, 1);
     
     
     
     Panel(){
         this.setSize(panelWithd, panelHeight);
         this.setBackground(Color.BLACK);
-        this.setFocusable(true);//permet de prendre le focus sur la fenetre
-        imageVaisseau = new ImageIcon("ship.png");
-        
+
     
 
+    }
 
+    public int getPosXVaisseau() {
+        return posXVaisseau;
+    }
+
+    public int getPosYMonster() {
+        return posYMonster;
+    }
+    public int getVitesseXVaisseau() {
+        return vitesseXVaisseau;
+    }
+    public int getVitesseYMonster() {
+        return vitesseYMonster;
+    }
+    public int getVitesseYtir() {
+        return vitesseYtir;
+    }
+
+    public void setPosXVaisseau(int posXVaisseau) {
+        this.posXVaisseau = posXVaisseau;
+    }
+    public void setPosYMonster(int posYMonster) {
+        this.posYMonster = posYMonster;
+    }
+    public void setVitesseXVaisseau(int vitesseXVaisseau) {
+        this.vitesseXVaisseau = vitesseXVaisseau;
+    }
+    public void setVitesseYMonster(int vitesseYMonster) {
+        this.vitesseYMonster = vitesseYMonster;
+    }
+    public void setVitesseYtir(int vitesseYtir) {
+        this.vitesseYtir = vitesseYtir;
     }
 
     public void Start(){
@@ -49,7 +80,7 @@ public class Panel extends JPanel{
 
     public void draw(Graphics g){
          Graphics2D g2D=((Graphics2D)g);
-       g2D.drawRect(posXVaisseau, 400, WIDTH, HEIGHT);
+       g2D.drawRect(posXVaisseau, 400, player.getWidth(), player.getHeight());
 
 
     }
