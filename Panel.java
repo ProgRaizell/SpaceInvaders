@@ -58,7 +58,7 @@ public class Panel extends JPanel{
 
 
     public void score(){
-
+/*va te faire enculer */
 
         
     }
