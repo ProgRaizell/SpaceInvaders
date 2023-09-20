@@ -3,6 +3,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 import javax.swing.ImageIcon;
@@ -10,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class Panel extends JPanel{
+public class Panel extends JPanel implements ActionListener{
 
     private final int panelHeight = 420;
     private final int panelWithd = 420;
@@ -18,9 +20,9 @@ public class Panel extends JPanel{
     private boolean isRunning = false;
     private int score;
     private int posXVaisseau = 200;
-    private int posYMonster;
+    private int posYMonster =20;
     private int vitesseXVaisseau;
-    private int vitesseYMonster;
+    private int vitesseYMonster=3;
     private int vitesseYtir;
     private int heightTir;
     private int widthTir;
@@ -32,15 +34,16 @@ public class Panel extends JPanel{
     
     
     
-    Panel(){
-        
+    Panel() {
+         
         this.setSize(new Dimension(panelWithd, panelHeight));
         this.setBackground(Color.BLACK);
-        timer = new Timer(1000, null);
+        timer = new Timer(1, this);
+		timer.start();
+		
         Start();
         
         
-
     
 
     }
@@ -48,17 +51,7 @@ public class Panel extends JPanel{
    
 
     public void Start(){
-        try {
-            
-            for(int i =0;i<10;i++){
-                Thread.sleep(1000);
-                System.out.println(""+i);
-            }
-             
-        } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        timer.start();
        
        
         
@@ -71,7 +64,7 @@ public class Panel extends JPanel{
 
 
     public void score(){
-/*va te faire enculer */
+
 
         
     }
@@ -82,6 +75,26 @@ public class Panel extends JPanel{
        
     }
 
+
+
+
+    @Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+         if(posYMonster<200){
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+            
+                    posYMonster+=vitesseYMonster;
+                }
+            repaint();
+    }
+   
+    
 
 @Override
 protected void paintComponent(Graphics g) {
