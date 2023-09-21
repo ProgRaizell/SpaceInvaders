@@ -8,7 +8,7 @@ public class Vaisseau {
         this.Lifepoint = Lifepoint;
     }
 
-    public int getHeight() {
+    public  int getHeight() {
         return Height;
     }
 

@@ -30,7 +30,7 @@ public class Panel extends JPanel implements ActionListener{
     private int vitesseYtir;
     private int heightTir;
     private int widthTir;
-    private ImageIcon imageVaisseau;
+    private ImageIcon image = new ImageIcon( "ship.png" );
    
     
     
@@ -45,6 +45,7 @@ public class Panel extends JPanel implements ActionListener{
         this.setBackground(Color.BLACK);
         timer = new Timer(1, this);
         
+        kill();
 		timer.start();
 		
         Start();
@@ -89,7 +90,9 @@ public void setPosYAttack(int posYAttack) {
 
     public void kill(){
 
-
+        if(posYAttack == posYMonster +40 ) {
+            System.out.println("kill");
+        }
 
     }
 
@@ -113,9 +116,9 @@ public void setPosYAttack(int posYAttack) {
     @Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-         if(posYMonster<200){
+         if(posYMonster<600){
             try {
-                Thread.sleep(10);
+                Thread.sleep(0);
             } catch (InterruptedException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -135,7 +138,9 @@ protected void paintComponent(Graphics g) {
          super.paintComponent(g);
          Graphics2D g2D = (Graphics2D) g;
          
+
          g2D.setColor(Color.CYAN);
+        
         
         g2D.fillRect(posXVaisseau, 300, player.getWidth(), player.getHeight());
 

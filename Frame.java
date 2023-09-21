@@ -66,7 +66,7 @@ public class Frame extends JFrame implements KeyListener{
             
           p.setHeightTir(10);
           p.setWidthTir(5);
-          p.setPosXAttack(p.getPosXVaisseau());
+          p.setPosXAttack(p.getPosXVaisseau()+17);
           p.setPosYAttack(300);
           t.start();
                 
