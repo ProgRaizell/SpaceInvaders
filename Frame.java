@@ -10,7 +10,7 @@ public class Frame extends JFrame implements KeyListener{
 
     private final int height = 420;
     private final int witdh= 420;
-   Timer t = new Timer(1, null);
+    Timer t = new Timer(1, null);
     private Panel p = new Panel();
     private int posYattack2=1;
 
@@ -70,16 +70,7 @@ public class Frame extends JFrame implements KeyListener{
           p.setPosYAttack(300);
           t.start();
                 
-                for(int i=1;i<100;i++){
-                    try {
-                        //ERREUR ICI
-                        t.wait(10);
-                    } catch (InterruptedException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
-                    posYattack2++;
-                     p.setPosYAttack(p.getPosYAttack()+posYattack2);
+                   
                 }
                 
         
@@ -98,4 +89,4 @@ public class Frame extends JFrame implements KeyListener{
     
 
     
-}
+
