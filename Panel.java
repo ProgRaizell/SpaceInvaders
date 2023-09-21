@@ -22,6 +22,8 @@ public class Panel extends JPanel implements ActionListener{
     private boolean isRunning = false;
     private int score;
     private int posXVaisseau = 200;
+    private int posXAttack;
+    private int posYAttack;
     private int posYMonster =1;
     private int vitesseXVaisseau;
     private int vitesseYMonster=1;
@@ -55,10 +57,28 @@ public class Panel extends JPanel implements ActionListener{
 
 
    
+public int getPosYAttack() {
+    return posYAttack;
+}
+
+public void setPosYAttack(int posYAttack) {
+    this.posYAttack = posYAttack;
+}
 
 
+   public int getWidthTir() {
+       return widthTir;
+   }
+   public void setWidthTir(int widthTir) {
+       this.widthTir = widthTir;
+   }
 
-   
+   public int getHeightTir() {
+       return heightTir;
+   }
+   public void setHeightTir(int heightTir) {
+       this.heightTir = heightTir;
+   }
 
     public void Start(){
         timer.start();
@@ -68,6 +88,8 @@ public class Panel extends JPanel implements ActionListener{
     }
 
     public void kill(){
+
+
 
     }
 
@@ -116,20 +138,25 @@ protected void paintComponent(Graphics g) {
         
         g2D.fillRect(posXVaisseau, 300, player.getWidth(), player.getHeight());
 
-          g2D.setColor(Color.red);
-        
+          
+ g2D.setColor(Color.GREEN);
+        g2D.fillRect(posXAttack, posYAttack, widthTir, heightTir);  
+        g2D.setColor(Color.red);
         g2D.fillRect(100, posYMonster+20, alien1.getWidth(), alien1.getHeight());
         g2D.fillRect(200, posYMonster+20, alien1.getWidth(), alien1.getHeight());
         g2D.fillRect(300, posYMonster+20, alien1.getWidth(), alien1.getHeight());
 
 }
 
-     
-    public void draw(Graphics g){
-         
-        
+public int getPosXAttack() {
+    return posXAttack;
+}
+public void setPosXAttack(int posXAttack) {
+    this.posXAttack = posXAttack;
+}
 
-    }
+     
+    
     
 
     public void attack(){

@@ -1,13 +1,18 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class Frame extends JFrame implements KeyListener{
 
     private final int height = 420;
     private final int witdh= 420;
+   Timer t = new Timer(1, null);
     private Panel p = new Panel();
+    private int posYattack2=1;
 
 
 
@@ -21,6 +26,7 @@ public class Frame extends JFrame implements KeyListener{
         this.setContentPane(p);
 
     }
+   
 
 
 
@@ -28,7 +34,7 @@ public class Frame extends JFrame implements KeyListener{
     public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub
         
-        System.out.println("test");
+      
     }
 
 
@@ -45,17 +51,48 @@ public class Frame extends JFrame implements KeyListener{
             p.setPosXVaisseau(p.getPosXVaisseau()-5);
         
         }
+        
+        
+        }
 
-    }
+    
 
 
 
     @Override
     public void keyReleased(KeyEvent e) {
         // TODO Auto-generated method stub
-        if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-            System.out.println("oui");
-        }
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            
+          p.setHeightTir(10);
+          p.setWidthTir(5);
+          p.setPosXAttack(p.getPosXVaisseau());
+          p.setPosYAttack(300);
+          t.start();
+                
+                for(int i=1;i<100;i++){
+                    try {
+                        //ERREUR ICI
+                        t.wait(10);
+                    } catch (InterruptedException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+                    posYattack2++;
+                     p.setPosYAttack(p.getPosYAttack()+posYattack2);
+                }
+                
+        
+        
+            
+                   
+                
+                    
+                   
+                
+         
+           
+          }
     }
 
     
