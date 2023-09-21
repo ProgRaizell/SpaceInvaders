@@ -122,6 +122,7 @@ public void setPosYAttack(int posYAttack) {
             }
             
                     posYMonster+=vitesseYMonster;
+                    posYAttack-=3;
                 }
             repaint();
     }
