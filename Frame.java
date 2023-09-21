@@ -43,12 +43,12 @@ public class Frame extends JFrame implements KeyListener{
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
            
-            p.setPosXVaisseau(p.getPosXVaisseau()+5);
+            p.setPosXVaisseau(p.getPosXVaisseau()+10);
         
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
             
-            p.setPosXVaisseau(p.getPosXVaisseau()-5);
+            p.setPosXVaisseau(p.getPosXVaisseau()-10);
         
         }
         
