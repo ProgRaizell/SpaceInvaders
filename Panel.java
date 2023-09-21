@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import javafx.scene.text.Font;
+
 public class Panel extends JPanel implements ActionListener{
 
     private final int panelHeight = 420;
@@ -21,6 +23,7 @@ public class Panel extends JPanel implements ActionListener{
     private Timer timer ;
     private boolean isRunning = false;
     private int score;
+    private int highScore;
     private int posXVaisseau = 200;
     private int posXAttack;
     private int posYAttack;
@@ -100,8 +103,13 @@ public void setPosYAttack(int posYAttack) {
 
     public void score(){
 
-
+        while(posXAttack == pos)
         
+    }
+
+    public void highScore(){
+
+
     }
 
     public void gameOver(){
@@ -109,9 +117,6 @@ public void setPosYAttack(int posYAttack) {
 
        
     }
-
-
-
 
     @Override
 	public void actionPerformed(ActionEvent e) {
@@ -135,6 +140,7 @@ public void setPosYAttack(int posYAttack) {
 @Override
 protected void paintComponent(Graphics g) {
     
+
          super.paintComponent(g);
          Graphics2D g2D = (Graphics2D) g;
          
@@ -152,6 +158,28 @@ protected void paintComponent(Graphics g) {
         g2D.fillRect(200, posYMonster+20, alien1.getWidth(), alien1.getHeight());
         g2D.fillRect(300, posYMonster+20, alien1.getWidth(), alien1.getHeight());
 
+g2D.setColor(Color.WHITE);
+g2D.drawString(score+"",375,20);
+
+g2D.setColor(Color.WHITE);
+g2D.drawString("High Sore :"+score+"",50,20);
+
+}
+public void setScore(int score) {
+    this.score = score;
+}
+
+public int getScore() {
+    return score;
+}
+
+
+public int getHighScore() {
+    return highScore;
+}
+
+public void setHighScore(int highScore) {
+    this.highScore = highScore;
 }
 
 public int getPosXAttack() {
