@@ -5,6 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.*;
 
 import javax.swing.ImageIcon;
@@ -20,13 +22,14 @@ public class Panel extends JPanel implements ActionListener{
     private boolean isRunning = false;
     private int score;
     private int posXVaisseau = 200;
-    private int posYMonster =20;
+    private int posYMonster =1;
     private int vitesseXVaisseau;
-    private int vitesseYMonster=3;
+    private int vitesseYMonster=1;
     private int vitesseYtir;
     private int heightTir;
     private int widthTir;
     private ImageIcon imageVaisseau;
+   
     
     
     private Vaisseau player = new Vaisseau(40, 40, 4);
@@ -39,6 +42,7 @@ public class Panel extends JPanel implements ActionListener{
         this.setSize(new Dimension(panelWithd, panelHeight));
         this.setBackground(Color.BLACK);
         timer = new Timer(1, this);
+        
 		timer.start();
 		
         Start();
@@ -47,6 +51,12 @@ public class Panel extends JPanel implements ActionListener{
     
 
     }
+
+
+
+   
+
+
 
    
 
@@ -83,7 +93,7 @@ public class Panel extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
          if(posYMonster<200){
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -159,7 +169,20 @@ protected void paintComponent(Graphics g) {
     public void setVitesseYtir(int vitesseYtir) {
         this.vitesseYtir = vitesseYtir;
     }
+/*if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+            System.out.println("oui");
+        } */
 
 
+
+
+
+    }
+
+   
     
-}
+
+        
+  
+    
+
