@@ -24,7 +24,6 @@ public class Panel extends JPanel implements ActionListener{
     private boolean isRunning = false;
     private int score;
     private int highScore;
-    private int posXVaisseau = 200;
     private int posXAttack;
     private int posYAttack;
     private int posYMonster =1;
@@ -36,10 +35,11 @@ public class Panel extends JPanel implements ActionListener{
     private ImageIcon image = new ImageIcon( "ship.png" );
    
     
-    
-    private Vaisseau player = new Vaisseau(40, 40, 4);
-    private Monstre alien1 = new Monstre(20, 20, 1);
-    
+    List<Monstre> Aliens = new ArrayList<Monstre>();  
+    List<Shoot> Bullets = new ArrayList<Shoot>();  
+
+
+    Vaisseau player = new Vaisseau(40, 40, 4, 200,300);
     
     
     Panel() {
@@ -52,8 +52,14 @@ public class Panel extends JPanel implements ActionListener{
 		timer.start();
 		
         Start();
-        
-        
+        //score();
+        Aliens.add(new Monstre(20, 20, 1, 100,50));        
+        Aliens.add(new Monstre(20, 20, 1, 200,50));         
+        Aliens.add(new Monstre(20, 20, 1, 300,50)); 
+        Aliens.add(new Monstre(20, 20, 1, 150,50)); 
+        Aliens.add(new Monstre(20, 20, 1, 250,50)); 
+
+
     
 
     }
@@ -103,8 +109,10 @@ public void setPosYAttack(int posYAttack) {
 
     public void score(){
 
-        while(posXAttack == pos)
-        
+        while(posYAttack != posYMonster+40) {
+
+        }
+        System.out.println("touché");
     }
 
     public void highScore(){
@@ -130,7 +138,10 @@ public void setPosYAttack(int posYAttack) {
             }
             
                     posYMonster+=vitesseYMonster;
-                    posYAttack-=4;
+                    //posYAttack-=4;
+                    for(int i = 0; i < Bullets.size();i++){
+                        Bullets.get(i).update();
+                    }
                 }
             repaint();
     }
@@ -148,18 +159,27 @@ protected void paintComponent(Graphics g) {
          g2D.setColor(Color.CYAN);
         
         
-        g2D.fillRect(posXVaisseau, 300, player.getWidth(), player.getHeight());
+        g2D.fillRect(player.getPosX(), player.getPosY(), player.getWidth(), player.getHeight());
 
           
  g2D.setColor(Color.GREEN);
-        g2D.fillRect(posXAttack, posYAttack, widthTir, heightTir);  
+        //g2D.fillRect(posXAttack, posYAttack, widthTir, heightTir);  
+
+        for(int i =0; i<Bullets.size();i++){
+            g2D.fillRect(Bullets.get(i).getPosX(), Bullets.get(i).getPosY(), Bullets.get(i).getWidth(), Bullets.get(i).getHeight());
+
+        }
         g2D.setColor(Color.red);
-        g2D.fillRect(100, posYMonster+20, alien1.getWidth(), alien1.getHeight());
-        g2D.fillRect(200, posYMonster+20, alien1.getWidth(), alien1.getHeight());
-        g2D.fillRect(300, posYMonster+20, alien1.getWidth(), alien1.getHeight());
+        for(int i =0; i<Aliens.size();i++){
+            g2D.fillRect(Aliens.get(i).getPosX(), Aliens.get(i).getPosY(), Aliens.get(i).getWidth(), Aliens.get(i).getHeight());
+
+        }
+        // g2D.fillRect(100, posYMonster+20, alien1.getWidth(), alien1.getHeight());
+        // g2D.fillRect(200, posYMonster+20, alien1.getWidth(), alien1.getHeight());
+        // g2D.fillRect(300, posYMonster+20, alien1.getWidth(), alien1.getHeight());
 
 g2D.setColor(Color.WHITE);
-g2D.drawString(score+"",375,20);
+g2D.drawString("Score : "+ score+"",250,20);
 
 g2D.setColor(Color.WHITE);
 g2D.drawString("High Sore :"+score+"",50,20);
@@ -198,10 +218,6 @@ public void setPosXAttack(int posXAttack) {
 
     }
 
-     public int getPosXVaisseau() {
-        return posXVaisseau;
-    }
-
     public int getPosYMonster() {
         return posYMonster;
     }
@@ -215,9 +231,6 @@ public void setPosXAttack(int posXAttack) {
         return vitesseYtir;
     }
 
-    public void setPosXVaisseau(int posXVaisseau) {
-        this.posXVaisseau = posXVaisseau;
-    }
     public void setPosYMonster(int posYMonster) {
         this.posYMonster = posYMonster;
     }
@@ -233,11 +246,9 @@ public void setPosXAttack(int posXAttack) {
 /*if(e.getKeyCode() == KeyEvent.VK_RIGHT){
             System.out.println("oui");
         } */
-
-
-
-
-
+public void spacePressed(){
+    Bullets.add(new Shoot(10,5,player.getPosX()+17,player.getPosY(),2));
+}
     }
 
    

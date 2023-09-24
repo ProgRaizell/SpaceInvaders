@@ -1,13 +1,13 @@
-public class Vaisseau {
+public class Shoot {
+    private int Height, Width,posX, posY, speed;
 
-    private int Height, Width, Lifepoint,posX, posY;
-    
-    public Vaisseau (int Height, int Width, int Lifepoint, int posX, int posY){
+    public Shoot (int Height, int Width, int posX, int posY, int speed){
         this.Height = Height;
 		this.Width = Width;
-        this.Lifepoint = Lifepoint;
         this.posX = posX;
         this.posY = posY;
+        this.speed = speed;
+
     }
 
     public  int getHeight() {
@@ -18,15 +18,17 @@ public class Vaisseau {
         return Width;
     }
 
-    public int getLifepoint() {
-        return Lifepoint;
-    }
     public int getPosX() {
         return posX;
     }
     public int getPosY() {
         return posY;
     }
+
+    public int getSpeed() {
+        return speed;
+    }
+
     public void setPosX(int posX) {
         this.posX = posX;
     }
@@ -41,19 +43,12 @@ public class Vaisseau {
     public void setWidth(int width) {
         Width = width;
     }
-    public void setLifepoint(int lifepoint) {
-        Lifepoint = lifepoint;
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 
-    public void attaque (){
-
-    }
-
-    public void mvnt_gauche(){
-
-    }
-
-    public void mvnt_droite(){
-        
+    public void update(){
+        posY -= speed;
     }
 }

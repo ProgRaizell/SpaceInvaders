@@ -1,11 +1,15 @@
 public class Monstre {
     
-    private int Height, Width, Lifepoint;
+    private int Height, Width, Lifepoint,posX,posY;
     
-    public Monstre (int Height, int Width, int Lifepoint){
+    public Monstre (int Height, int Width, int Lifepoint, int posX, int posY){
+
         this.Height = Height;
 		this.Width = Width;
         this.Lifepoint = Lifepoint;
+        this.posX = posX;        
+        this.posY = posY;
+
     }
 
     public int getHeight() {
@@ -26,12 +30,23 @@ public class Monstre {
     public void setWidth(int width) {
         Width = width;
     }
+    public int getPosX() {
+        return posX;
+    }
+    public int getPosY() {
+        return posY;
+    }
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
 
     public void mvnt_bas(){
 
 
     }
-
 
 
 }

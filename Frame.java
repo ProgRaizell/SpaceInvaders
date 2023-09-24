@@ -43,35 +43,31 @@ public class Frame extends JFrame implements KeyListener{
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){
            
-            p.setPosXVaisseau(p.getPosXVaisseau()+10);
+            p.player.setPosX(p.player.getPosX()+10);
         
         }
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
             
-            p.setPosXVaisseau(p.getPosXVaisseau()-10);
-        
+            p.player.setPosX(p.player.getPosX()-10);        
         }
-        
-        
+             
         }
-
-    
-
-
 
     @Override
     public void keyReleased(KeyEvent e) {
         // TODO Auto-generated method stub
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
-            
-          p.setHeightTir(10);
-          p.setWidthTir(5);
-          p.setPosXAttack(p.getPosXVaisseau()+17);
-          p.setPosYAttack(300);
-          t.start();
+            p.spacePressed();
+        //   p.setHeightTir(10);
+        //   p.setWidthTir(5);
+        //   p.setPosXAttack(p.player.getPosX()+17);
+        //   p.setPosYAttack(p.player.getPosY());
+        //   t.start();
                 
                    
-                }
+        }
+
+    
                 
         
         
